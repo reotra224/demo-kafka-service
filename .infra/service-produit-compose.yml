@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  bd-service-produit:
+    image: postgres:16-alpine
+    restart: always
+    container_name: bd-service-produit
+    volumes:
+      - ~/dev-workspace/demos/volumes/produit-db/:/var/lib/mysql
+    environment:
+      - POSTGRES_DB=service_produit
+      - PGPORT=5431
+      - POSTGRES_USER=serviceproduit
+      - POSTGRES_PASSWORD=serviceproduit
+    ports:
+      - '5431:5431'
